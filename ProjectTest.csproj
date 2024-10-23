@@ -1,0 +1,63 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>59beb898-234c-4b92-9d72-0474c800619d</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>.</DockerfileContext>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="ProjectTest.Application\**" />
+    <Compile Remove="ProjectTest.Domain\**" />
+    <Compile Remove="ProjectTest.Infrastructure.Data\**" />
+    <Compile Remove="ProjectTest.Infrastructure\**" />
+    <Compile Remove="ProjectTest.Test\**" />
+    <Content Remove="ProjectTest.Application\**" />
+    <Content Remove="ProjectTest.Domain\**" />
+    <Content Remove="ProjectTest.Infrastructure.Data\**" />
+    <Content Remove="ProjectTest.Infrastructure\**" />
+    <Content Remove="ProjectTest.Test\**" />
+    <EmbeddedResource Remove="ProjectTest.Application\**" />
+    <EmbeddedResource Remove="ProjectTest.Domain\**" />
+    <EmbeddedResource Remove="ProjectTest.Infrastructure.Data\**" />
+    <EmbeddedResource Remove="ProjectTest.Infrastructure\**" />
+    <EmbeddedResource Remove="ProjectTest.Test\**" />
+    <None Remove="ProjectTest.Application\**" />
+    <None Remove="ProjectTest.Domain\**" />
+    <None Remove="ProjectTest.Infrastructure.Data\**" />
+    <None Remove="ProjectTest.Infrastructure\**" />
+    <None Remove="ProjectTest.Test\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\EnderecoEntregaController.cs" />
+    <Compile Remove="Controllers\PedidoController.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.4.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.6">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.6" />
+    <PackageReference Include="Serilog" Version="4.1.0" />
+    <PackageReference Include="Serilog.AspNetCore" Version="8.0.3" />
+    <PackageReference Include="Serilog.Extensions.Logging" Version="8.0.0" />
+    <PackageReference Include="Serilog.Settings.Configuration" Version="8.0.4" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="6.0.0" />
+    <PackageReference Include="Serilog.Sinks.File" Version="6.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="8.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="ProjectTest.Application\ProjectTest.Application.csproj" />
+    <ProjectReference Include="ProjectTest.Infrastructure.Data\ProjectTest.Infrastructure.Data.csproj" />
+  </ItemGroup>
+
+</Project>
