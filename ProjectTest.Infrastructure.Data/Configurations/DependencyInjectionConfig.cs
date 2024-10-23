@@ -45,7 +45,7 @@ namespace ProjectTest.Infrastructure.Data.Configurations
             services.AddScoped<IVendaService, VendaService>();
             services.AddScoped<IVendaRepository, VendaRepository>();
             services.AddScoped<IItemVendaRepository, ItemVendaRepository>();
-            services.AddSingleton<IEventPublisher, EventPublisher>();
+            services.AddTransient<IEventPublisher, EventPublisher>();
 
         }
 

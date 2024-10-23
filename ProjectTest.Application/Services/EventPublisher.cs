@@ -1,13 +1,14 @@
-﻿using ProjectTest.Application.Events;
+﻿using Microsoft.Extensions.Logging;
+using ProjectTest.Application.Events;
 using ProjectTest.Application.Interfaces;
 using Serilog;
 namespace ProjectTest.Application.Services
 {
     public class EventPublisher : IEventPublisher
     {
-        private readonly ILogger _logger;
+        private readonly ILogger<EventPublisher> _logger;
 
-        public EventPublisher(ILogger logger)
+        public EventPublisher(ILogger<EventPublisher> logger)
         {
             _logger = logger;
         }
@@ -24,7 +25,7 @@ namespace ProjectTest.Application.Services
                 _ => "Evento desconhecido"
             };
 
-            _logger.Information(logMessage);
+            _logger.LogInformation(logMessage);
         }
     }
 }
