@@ -1,12 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using ProjectTest.Domain.Entities;
-using ProjectTest.Domain.Entities.Enum;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProjectTest.Infrastructure.Data.Mappings
 {
@@ -31,15 +25,16 @@ namespace ProjectTest.Infrastructure.Data.Mappings
 
             builder.Property(i => i.ValorUnitario)
                 .IsRequired()
-                .HasColumnName("valor_unitario");
+                .HasColumnName("valor_unitario")
+                .HasColumnType("decimal(18,2)");
 
-            builder.Property(i => i.Desconto)
-                .IsRequired()
-                .HasColumnName("desconto");
+            builder.Property(i => i.DescontoValorUnitario)
+                .HasColumnName("desconto_valor_unitario")
+                .HasColumnType("decimal(18,2)")
+                .IsRequired(false); 
 
             // Propriedade calculada (não armazenada no banco de dados)
             builder.Ignore(i => i.ValorTotalItem);
-
 
             builder.Property(x => x.VendaId)
                 .HasColumnName("venda_id")
@@ -49,7 +44,6 @@ namespace ProjectTest.Infrastructure.Data.Mappings
                 .WithMany(u => u.Itens)
                 .HasForeignKey(x => x.VendaId)
                 .OnDelete(DeleteBehavior.Cascade);
-
 
             builder.Property(c => c.Cancelada)
                 .HasColumnName("cancelada")

@@ -14,5 +14,7 @@ namespace ProjectTest.Domain.Interfaces.Service
         Task CancelarVendaAsync(Guid vendaId);
         Task<List<Venda>> GetAllAsync();
         Task<Venda> UpdateAsync(Venda vendaEntity);
+        Task<Venda> GetByIdAsync(Guid id);
+        Task GerarDesconto(Venda vendaEntity);
     }
 }

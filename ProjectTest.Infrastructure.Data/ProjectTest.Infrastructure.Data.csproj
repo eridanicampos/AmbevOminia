@@ -9,9 +9,11 @@
   <ItemGroup>
     <Compile Remove="Mappings\EnderecoEntregaMap.cs" />
     <Compile Remove="Mappings\PedidoMap.cs" />
+    <Compile Remove="Mappings\ProdutoMap.cs" />
     <Compile Remove="Mappings\TarefaMap.cs" />
     <Compile Remove="Repositories\EnderecoEntregaRepository.cs" />
     <Compile Remove="Repositories\PedidoRepository.cs" />
+    <Compile Remove="Repositories\ProdutoRepository.cs" />
     <Compile Remove="Repositories\TarefaRepository.cs" />
   </ItemGroup>
 

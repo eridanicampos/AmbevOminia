@@ -9,9 +9,11 @@
   <ItemGroup>
     <Compile Remove="Entities\EnderecoEntrega.cs" />
     <Compile Remove="Entities\Pedido.cs" />
+    <Compile Remove="Entities\Produto.cs" />
     <Compile Remove="Entities\Tarefa.cs" />
     <Compile Remove="Interfaces\Repository\IEnderecoEntregaRepository.cs" />
     <Compile Remove="Interfaces\Repository\IPedidoRepository.cs" />
+    <Compile Remove="Interfaces\Repository\IProdutoRepository.cs" />
     <Compile Remove="Interfaces\Repository\ITarefaRepository.cs" />
   </ItemGroup>
 

@@ -7,8 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Produtos\**" />
+    <EmbeddedResource Remove="Produtos\**" />
+    <None Remove="Produtos\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Interfaces\IProdutoService.cs" />
     <Compile Remove="Services\EnderecoEntregaService.cs" />
     <Compile Remove="Services\PedidoService.cs" />
+    <Compile Remove="Services\ProdutoService.cs" />
     <Compile Remove="Services\TarefaService.cs" />
   </ItemGroup>
 

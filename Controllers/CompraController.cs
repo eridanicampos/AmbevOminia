@@ -7,7 +7,6 @@ using ProjectTest.Application.Compra.Commands.CancelarItem;
 using ProjectTest.Application.Compra.Commands.CreateCompra;
 using ProjectTest.Application.Compra.Commands.UpdateCompra;
 using ProjectTest.Application.Compra.Queries.GetAllCompra;
-using ProjectTest.Application.DTO.Tarefa;
 using ProjectTest.Application.DTO.Venda;
 using ProjectTest.Application.Interfaces;
 using ProjectTest.Domain.Helpers;
@@ -30,7 +29,7 @@ namespace ProjectTest.Controllers
 
 
         [HttpPost]
-        [ProducesResponseType(typeof(TarefaDTO), StatusCodes.Status201Created)]
+        [ProducesResponseType(typeof(VendaDTO), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> CreateAsync([FromBody] CreateCompraCommand command)
         {

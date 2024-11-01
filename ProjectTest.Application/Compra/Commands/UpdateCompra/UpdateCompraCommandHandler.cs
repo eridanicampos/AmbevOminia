@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using ProjectTest.Application.Abstractions.Messaging;
 using ProjectTest.Application.DTO.Venda;
+using ProjectTest.Application.Services;
 using ProjectTest.Domain.Entities;
 using ProjectTest.Domain.Interfaces.Service;
 using System;
@@ -24,8 +25,11 @@ namespace ProjectTest.Application.Compra.Commands.UpdateCompra
 
         public async Task<VendaDTO> Handle(UpdateCompraCommand request, CancellationToken cancellationToken)
         {
-            var vendaEntity = _mapper.Map<Venda>(request);
-            var vendaAtualizada = await _vendaService.UpdateAsync(vendaEntity);
+            var entity = await _vendaService.GetByIdAsync(request.VendaId);
+
+            _mapper.Map(request, entity);
+
+            var vendaAtualizada = await _vendaService.UpdateAsync(entity);
 
             if (vendaAtualizada == null)
             {

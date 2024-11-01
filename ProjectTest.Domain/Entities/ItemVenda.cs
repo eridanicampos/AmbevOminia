@@ -12,8 +12,9 @@ namespace ProjectTest.Domain.Entities
         public string NomeProduto { get; set; } = string.Empty;
         public int Quantidade { get; set; }
         public decimal ValorUnitario { get; set; }
-        public decimal Desconto { get; set; }
-        public decimal ValorTotalItem => Quantidade * ValorUnitario - Desconto;
+        public decimal ValorTotalItem => Quantidade * ValorUnitario;
+
+        public decimal? DescontoValorUnitario { get; set; } = null;
         public bool Cancelada { get; set; } = false;
 
         public virtual Guid VendaId { get; set; }
@@ -31,10 +32,6 @@ namespace ProjectTest.Domain.Entities
             if (ValorUnitario <= 0)
                 messages.Add("O valor unitário deve ser maior que zero.");
 
-            if (Desconto < 0)
-                messages.Add("O desconto não pode ser negativo.");
-            if (Desconto > (Quantidade * ValorUnitario))
-                messages.Add("O desconto não pode ser maior que o valor total dos itens.");
 
             bool isValid = !messages.Any();
             return Task.FromResult((isValid, messages));
