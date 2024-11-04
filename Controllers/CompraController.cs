@@ -15,7 +15,7 @@ namespace ProjectTest.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class CompraController : BaseController
     {
         private readonly IMediator _mediator;

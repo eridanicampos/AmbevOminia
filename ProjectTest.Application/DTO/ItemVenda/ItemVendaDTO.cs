@@ -13,7 +13,7 @@ namespace ProjectTest.Application.DTO.ItemVenda
         public string NomeProduto { get; set; } = string.Empty;
         public int Quantidade { get; set; }
         public decimal ValorUnitario { get; set; }
-        public decimal Desconto { get; set; }
+        public decimal DescontoValorUnitario { get; set; }
         public decimal ValorTotalItem { get; set; }
         public bool Cancelada { get; set; }
 

@@ -11,6 +11,8 @@ using ProjectTest.Infrastructure.Data.Repositories;
 using ProjectTest.Domain.Entities;
 using ProjectTest.Domain.Interfaces;
 using ProjectTest.Domain.Interfaces.Service;
+using ProjectTest.Application.Validators;
+using FluentValidation;
 
 namespace ProjectTest.Infrastructure.Data.Configurations
 {
@@ -21,6 +23,7 @@ namespace ProjectTest.Infrastructure.Data.Configurations
             AddDataBase(services, configuration);
             AddRepositoriesServices(services);
             AddStoreProcedures(services);
+            AddValidators(services);
             return services;
         }
 
@@ -52,6 +55,10 @@ namespace ProjectTest.Infrastructure.Data.Configurations
         public static void AddStoreProcedures(IServiceCollection services)
         {
 
+        }
+        public static void AddValidators(IServiceCollection services)
+        {
+            services.AddValidatorsFromAssemblyContaining<VendaValidator>(); 
         }
     }
 }

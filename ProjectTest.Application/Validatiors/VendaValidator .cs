@@ -8,17 +8,17 @@ namespace ProjectTest.Application.Validators
 {
     public class VendaValidator : AbstractValidator<Venda>
     {
-        private readonly IUnitOfWork _uow;
 
-        public VendaValidator(IUnitOfWork uow)
+        public VendaValidator()
         {
-            _uow = uow;
+            var currentDate = DateTime.Now.Date;
 
-            RuleFor(v => v.DataVenda)
-                .GreaterThan(DateTime.Now.AddYears(-1))
+            RuleFor(v => v.DataVenda.Date) 
+                .GreaterThan(currentDate.AddYears(-1))
                 .WithMessage("A data da venda não pode ser superior a um ano atrás.")
-                .LessThanOrEqualTo(DateTime.Now)
+                .LessThanOrEqualTo(currentDate)
                 .WithMessage("A data da venda não pode estar no futuro.");
+
 
             RuleFor(v => v.Filial)
                 .NotEmpty()
@@ -34,7 +34,7 @@ namespace ProjectTest.Application.Validators
                 .WithMessage("O valor total da venda não corresponde à soma dos itens.");
 
             RuleForEach(v => v.Itens)
-                .SetValidator(new ItemVendaValidator(_uow));
+                .SetValidator(new ItemVendaValidator());
 
             RuleFor(v => v.Cancelada)
                 .Must(cancelada => !cancelada)
@@ -44,11 +44,9 @@ namespace ProjectTest.Application.Validators
 
     public class ItemVendaValidator : AbstractValidator<Domain.Entities.ItemVenda>
     {
-        private readonly IUnitOfWork _uow;
 
-        public ItemVendaValidator(IUnitOfWork uow)
+        public ItemVendaValidator()
         {
-            _uow = uow;
 
             RuleFor(i => i.ProdutoId)
                 .NotEmpty()

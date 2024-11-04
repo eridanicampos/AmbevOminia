@@ -38,12 +38,6 @@ namespace ProjectTest.Application.Services
             {
                 _logger.LogInformation("Adicionando nova venda ao banco de dados.");
 
-                var vendaExistente = await _uow.VendaRepository.GetByGuidAsync(vendaEntity.Id);
-                if (vendaExistente != null)
-                {
-                    throw new Exception("Venda já existe.");
-                }
-
                 vendaEntity.NumeroVenda = GerarNumeroVenda();
                 vendaEntity.DataVenda = DateTime.Now;
                 await GerarDesconto(vendaEntity);
