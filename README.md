@@ -52,7 +52,7 @@ Como Executar o Projeto
 
 Clone o repositório do GitHub:
 
-git clone https://github.com/eridanicampos/Ambev.git
+git clone https://github.com/eridanicampos/AmbevOminia.git
 
 Certifique-se de ter a versão mais recente do SDK .NET 8 instalada.
 
